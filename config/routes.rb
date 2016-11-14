@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :restaurants, :reviews
-    root 'welcome#index'
+    root 'yelp#index'
 
 
   # Example resource route with options:
