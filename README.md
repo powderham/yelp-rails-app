@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/powderham/yelp-rails-app.png?label=ready&title=Ready)](https://waffle.io/powderham/yelp-rails-app)
 # README
 
 ### MVP User Stories
