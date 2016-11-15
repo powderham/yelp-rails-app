@@ -24,6 +24,7 @@ RSpec.feature 'Homepage', :type => :feature do
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_current_path('/')
     find("a:contains('Sign out')").click
+    sign_up_user_1
     expect(page).to have_content('Email has already been taken')
     expect(page).to have_current_path('/users')
   end
