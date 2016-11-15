@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'yelp/index'
 
+  # post 'restaurants'
+  # root 'restaurants#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
