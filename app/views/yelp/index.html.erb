@@ -2,9 +2,13 @@
 <p>Find me in app/views/yelp/index.html.erb</p>
 <ul style="list-style: none;">
 <% @restaurants.each do |res| %>
-  <li><%= res.name %><br>
+  <li><a href='/restaurants/<%= res.id%>'><%= res.name %></a><br>
   <%= res.description %>
   <%= res.average_rating %></li>
+  <form class="button" action="/restaurants/<%= res.id%>" method="get">
+    <button type="submit" name="leave_review" value="Create new restaurant">Leave review</button>
+  </form>
+
   <br>
 <% end %>
 </ul>

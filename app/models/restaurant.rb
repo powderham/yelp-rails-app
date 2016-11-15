@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  has_many :review
+  has_many :reviews,  dependent: :destroy
 
   def average_rating
     # @reviews = Review.all

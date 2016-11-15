@@ -8,9 +8,20 @@
   <%= @restaurant.description %>
 </p>
 
-<form action="reviews/new" method="post">
-  Leave a review:
-  Rate 1-5: <input type="number" name="score" min="1" max="5">
-  Comment your experience: <input type="text" name="comment">
-  <button type="button" name="submit">Submit review</button>
-</form>
+<%= form_for [@restaurant, @review] do |f| %>
+<p>
+  <%= f.label :rating %><br>
+  <%= f.select :rating, (1..5) %><br>
+</p>
+
+<p>
+  <%= f.label :comment %><br>
+  <%= f.text_area :comment %><br>
+</p>
+
+
+<p>
+  <%= f.submit 'Leave Review'%><br>
+</p>
+
+<% end %>
