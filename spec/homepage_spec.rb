@@ -19,14 +19,21 @@ RSpec.feature 'Homepage', :type => :feature do
     expect(page).to have_current_path('/restaurants/new?new_restaurant=Create+new+restaurant')
   end
 
-  scenario 'user can sign up or log in' do
-    visit 'yelp/index'
-    find("a:contains('Sign up')").click
-    fill_in "user_email", with: 'john@email.com'
-    fill_in "user_password", with: 'password123'
-    fill_in "user_password_confirmation", with: 'password123'
-    find('input[name="commit"]').click
+  scenario 'user can sign up only once' do
+    sign_up_user_1
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_current_path('/')
+    find("a:contains('Sign out')").click
+    expect(page).to have_content('Email has already been taken')
+    expect(page).to have_current_path('/users')
   end
+
+  scenario 'user can log in' do
+    sign_up_user_1
+    find("a:contains('Sign out')").click
+    log_in_user_1
+    expect(page).to have_content('Signed in successfully.')
+    expect(page).to have_current_path('/')
+  end
+
 end
