@@ -13,4 +13,10 @@ RSpec.feature 'Homepage', :type => :feature do
     expect(page).to have_content(@restaurant.description)
     expect(page).to have_content(3)
   end
+
+  scenario 'contain new restaurant button' do
+    visit 'yelp/index'
+    click_button 'new_restaurant'
+    expect(page).to have_current_path('/restaurant/new')
+  end
 end
