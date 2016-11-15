@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
 
     @restaurant.save
-    redirect_to @restaurant
+    redirect_to '/yelp/index'
   end
 
   private
