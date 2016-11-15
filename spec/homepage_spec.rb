@@ -16,12 +16,12 @@ RSpec.feature 'Homepage', :type => :feature do
   scenario 'contain new restaurant button' do
     visit 'yelp/index'
     find('button[name="new_restaurant"]').click
-    expect(page).to have_current_path('/restaurant/new')
+    expect(page).to have_current_path('/restaurants/new?new_restaurant=Create+new+restaurant')
   end
 
   scenario 'user can sign up or log in' do
     visit 'yelp/index'
-    find('link_to["Sign up"]').click
+    find("a:contains('Sign up')").click
     fill_in "user_email", with: 'john@email.com'
     fill_in "user_password", with: 'password123'
     fill_in "user_password_confirmation", with: 'password123'
