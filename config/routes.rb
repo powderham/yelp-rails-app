@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     root 'yelp#index'
 
 
-
   # Example resource route with options:
   #   resources :products do
   #     member do
