@@ -7,10 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if user_signed_in?  %>
+  <p> Logged in as: <%= current_user.email %></p>
+  <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"> <%= alert %></p>
-<ul style="list-style:none;display:inline;margin:2em;">
+<ul>
   <% if user_signed_in?  %>
+  <!-- <p> Logged in as: <%= current_user.email %></p> -->
+  <div class="all_links" >
   <li>
     <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
   </li>
@@ -25,10 +30,23 @@
     <%= link_to('Sign up', new_user_registration_path) %>
   </li>
   <% end %>
-
+  </div>
 </ul>
 
   <%= yield %>
 
 </body>
 </html>
+
+<style media="screen">
+ul {
+  list-style: none;
+  display: inline;
+  margin: 0 0 2em;
+}
+.all_links {
+  position: absolute;
+  right: 40px;
+  top: 16px;
+}
+</style>
