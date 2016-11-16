@@ -2,13 +2,13 @@
 <h1>Update your restaurant information</h1>
 
 <%= form_for(@restaurant) do |x| %>
-<%= x.label :name %>
-<%= x.text_field :name %>
+<%= x.label :name %><br>
+<%= x.text_field :name %><br><br>
 
-<%= x.label :description %>
-<%= x.text_area :description %>
+<%= x.label :description %><br>
+<%= x.text_area :description %><br><br>
 
-<%= x.submit "Save changes" %>
+<%= x.submit "Save changes" %><br><br>
 
 <% end %>
 

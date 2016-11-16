@@ -12,3 +12,5 @@
   <strong>Reviews:</strong>
   <%= @restaurant.reviews %>
 </p>
+
+  <%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>
