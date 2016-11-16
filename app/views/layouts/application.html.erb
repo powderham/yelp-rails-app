@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Yelp</title>
+  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-be</head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %></head>
 <body>
   <% if user_signed_in?  %>
   <p> Logged in as: <%= current_user.email %></p>
