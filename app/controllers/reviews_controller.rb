@@ -6,9 +6,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant.reviews.create(review_params)
-    redirect_to '/restaurants'
+    if current_user.nil?
+      redirect_to '/yelp/index'
+    else
+      @restaurant = Restaurant.find(params[:restaurant_id])
+      @review = @restaurant.reviews.create(review_params)
+      @review.user_id = current_user.id
+      @review.save
+      redirect_to '/restaurants'
+    end
   end
 
 private
