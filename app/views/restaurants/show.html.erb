@@ -9,5 +9,22 @@
 </p>
 
 <p>
+
   Belongs to <%= @restaurant.user_email %>
 </p>
+
+  <strong>Reviews:</strong>
+  <ul>
+    <% @restaurant.reviews.each do |res| %>
+    <li>
+      Review:<br>
+      <%= res.comment %><br>
+      Rating:
+      <%= res.rating %><br><br>
+    </li>
+    <%end%>
+  </ul>
+</p>
+
+
+<%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>
