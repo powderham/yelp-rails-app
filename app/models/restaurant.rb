@@ -9,7 +9,7 @@ class Restaurant < ActiveRecord::Base
       count += 1
       total += r.rating
     end
-    if count = 0 return "No reviews"
+    return "No reviews" if count == 0 
     total/count
   end
 end
