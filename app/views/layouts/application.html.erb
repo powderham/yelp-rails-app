@@ -2,10 +2,9 @@
 <html>
 <head>
   <title>Yelp</title>
+  <%= csrf_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %></head>
 <body>
   <% if user_signed_in?  %>
   <p> Logged in as: <%= current_user.email %></p>
@@ -37,8 +36,7 @@
 
 </body>
 </html>
-
-<!-- below code causing 4 test fails, will be moved into stylesheet shortly -->
+<!--
 <style media="screen">
 ul {
   list-style: none;
@@ -50,4 +48,4 @@ ul {
   right: 40px;
   top: 16px;
 }
-</style>
+</style> -->
