@@ -5,6 +5,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require_relative 'web_helpers'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 # Add additional requires below this line. Rails is not loaded until this point!
