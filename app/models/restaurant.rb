@@ -2,10 +2,10 @@ class Restaurant < ActiveRecord::Base
   has_many :reviews,  dependent: :destroy
 
   def average_rating
-    @reviews = Review.all
+    @restaurant = Restaurant.find(self.id)
     count = 0
     total = 0
-    @reviews.each do |r|
+    @restaurant.reviews.each do |r|
       count += 1
       total += r.rating
     end

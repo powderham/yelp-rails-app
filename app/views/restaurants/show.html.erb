@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Average rating:</strong>
+  <%= @restaurant.average_rating %>
+</p>
+
+<p>
   <strong>Reviews:</strong>
   <ul>
     <% @restaurant.reviews.each do |res| %>
@@ -21,6 +26,7 @@
     <%end%>
   </ul>
 </p>
+
 
 
 <%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>
