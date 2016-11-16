@@ -7,14 +7,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
-  def new
-  end
-
   def create
     @restaurant = Restaurant.new(restaurant_params)
-
     @restaurant.save
-    redirect_to '/yelp/index'
+    redirect_to '/restaurants'
   end
 
   private
