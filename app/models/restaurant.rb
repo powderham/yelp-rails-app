@@ -1,5 +1,7 @@
 class Restaurant < ActiveRecord::Base
-  has_many :review
+  has_many :reviews,  dependent: :destroy
+  belongs_to :user, dependent: :destroy
+  delegate :email, to: :user, prefix: true
 
   def average_rating
     @reviews = Review.all
@@ -9,7 +11,7 @@ class Restaurant < ActiveRecord::Base
       count += 1
       total += r.rating
     end
-    if count = 0 return "No reviews"
+    return "No reviews" if count == 0
     total/count
   end
 end

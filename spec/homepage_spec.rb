@@ -11,12 +11,30 @@ RSpec.feature 'Homepage', :type => :feature do
     visit 'yelp/index'
     expect(page).to have_content(@restaurant.name)
     expect(page).to have_content(@restaurant.description)
-    expect(page).to have_content(3)
   end
 
   scenario 'contain new restaurant button' do
     visit 'yelp/index'
-    find('input[name="new_restaurant"]').click    
-    expect(page).to have_current_path('/restaurant/new')
+    find('button[name="new_restaurant"]').click
+    expect(page).to have_current_path('/restaurants/new?new_restaurant=Create+new+restaurant')
   end
+
+  scenario 'user can sign up only once' do
+    sign_up_user_1
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_current_path('/')
+    find("a:contains('Sign out')").click
+    sign_up_user_1
+    expect(page).to have_content('Email has already been taken')
+    expect(page).to have_current_path('/users')
+  end
+
+  scenario 'user can log in' do
+    sign_up_user_1
+    find("a:contains('Sign out')").click
+    log_in_user_1
+    expect(page).to have_content('Signed in successfully.')
+    expect(page).to have_current_path('/')
+  end
+
 end
