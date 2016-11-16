@@ -2,15 +2,19 @@
 <p>Find me in app/views/yelp/index.html.erb</p>
 <ul style="list-style: none;">
 <% @restaurants.each do |res| %>
-  <li><a href='/restaurants/<%= res.id%>'><%= res.name %></a><br>
+  <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ><%= res.name %></a><br>
   <%= res.description %>
   <%= res.average_rating %></li>
-  <%= link_to "Review #{res.name}", new_restaurant_review_path(res) %>
-
+  <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
   <br>
 <% end %>
 </ul>
 
-<form class="button" action="/restaurants/new" method="get">
-  <button type="submit" name="new_restaurant" value="Create new restaurant">Create new restaurant</button>
-</form>
+<% if current_user.nil? %>
+  To register a new restaurant:<br>
+  <%= link_to('Sign in', new_user_session_path) %>
+<% else %>
+  <form class="button" action="/restaurants/new" method="get">
+    <button type="submit" name="new_restaurant" value="Create new restaurant">Create new restaurant</button>
+  </form>
+<% end %>

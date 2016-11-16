@@ -1,5 +1,7 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews,  dependent: :destroy
+  belongs_to :user, dependent: :destroy
+  delegate :email, to: :user, prefix: true
 
   def average_rating
     @restaurant = Restaurant.find(self.id)
