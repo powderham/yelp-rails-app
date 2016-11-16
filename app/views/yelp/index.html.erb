@@ -5,7 +5,9 @@
   <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ><%= res.name %></a><br>
   <%= res.description %>
   <%= res.average_rating %></li>
-  <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
+  <% if current_user != nil %>
+    <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
+  <% end %>
   <br>
 <% end %>
 </ul>
