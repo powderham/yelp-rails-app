@@ -11,3 +11,7 @@
 <%= x.submit "Save changes" %>
 
 <% end %>
+
+<li>
+<%= link_to 'delete', @restaurant, method: :delete, data: {confirm: 'You sure?'} %>
+</li>
