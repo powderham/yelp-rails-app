@@ -32,6 +32,6 @@
   </ul>
 </p>
 
-
-
-<%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>
+<% if current_user.id == @restaurant.user_id %>
+<%= link_to '<button type="submit"> Edit</button>'.html_safe, edit_restaurant_path(@restaurant), :id => 'edit_restaurant_button'%>
+<% end %>
