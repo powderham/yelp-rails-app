@@ -14,16 +14,39 @@
  *= require_self
  */
 
- ul {
+ /*ul {
    list-style: none;
    display: inline;
    margin: 0 0 2em;
+ }*/
+
+ #navbar {
+   background-color: #3c767f;
+   border-color: #3c767f;
+   border-radius: 0;
  }
- html {
-   background-color: #ffffe6
+
+ .nav.navbar-nav.navbar-right li a {
+    color: #c4f7ff;
+}
+
+.nav.navbar-nav:hover li a {
+   color: #777;
+}
+
+.nav.navbar-nav li a {
+   color: #c4f7ff;
+}
+
+.nav.navbar-brand a {
+   color: #c4f7ff;
+}
+ body {
+   background-color: #c4f7ff;
  }
  * a {
    text-decoration: none;
+   color: ;
  }
  a:link, a:visited {
    color: #009933;
@@ -31,39 +54,11 @@
  a:hover {
    color: #000000;
  }
- .all_links {
-   position: absolute;
-   right: 40px;
-   top: 16px;
- }
-.sign_up_edit, .sign_out_in {
-  padding: 6px;
-  border-radius: 8px;
-  margin: 4px;
-  text-align: center;
-  background-color: #3399ff;
-  letter-spacing: 0.05em;
-}
-#all_links a:link{
-  color: #ffffff;
-}
-#all_links a:visited {
-  color: #ffffff;
-}
-.sign_up_edit:hover {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  background-color: #ff471a;
-}
-.sign_out_in:hover {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  background-color: #ff471a;
-}
 .logged_in {
   font-size: 1em;
   font-family: arial;
-  color: #000000;
+  color: #c4f7ff;
+  padding-top: 15px
 }
 textarea {
   font-size: 1em;

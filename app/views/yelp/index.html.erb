@@ -1,20 +1,25 @@
-<h1>Yelp</h1>
-<p>Find me in app/views/yelp/index.html.erb</p>
-<ul style="list-style: none;">
-<% @restaurants.each do |res| %>
-  <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ><%= res.name %></a><br>
-  <%= res.description %><br>
-  Avg rating: <%= res.average_rating %></li>
-  <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
-  <br><br>
-<% end %>
-</ul>
-
-<% if current_user.nil? %>
-  To register a new restaurant:<br>
-  <%= link_to('Sign in', new_user_session_path) %>
-<% else %>
-  <form class="button" action="/restaurants/new" method="get">
-    <button type="submit" name="new_restaurant" value="Create new restaurant">Create new restaurant</button>
-  </form>
-<% end %>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4 text-center">
+    <h1>Yelp</h1>
+    <div class="restaurant-div text-left col-lg-4">
+      <p>Find me in app/views/yelp/index.html.erb</p>
+      <ul style="list-style: none;">
+        <% @restaurants.each do |res| %>
+        <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ><%= res.name %></a><br>
+          <%= res.description %><br>
+          Avg rating: <%= res.average_rating %></li>
+          <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
+          <br><br>
+          <% end %>
+        </ul>
+        <% if current_user.nil? %>
+        To register a new restaurant:<br>
+        <%= link_to('Sign in', new_user_session_path) %>
+        <% else %>
+        <form class="button" action="/restaurants/new" method="get">
+          <button type="submit" name="new_restaurant" value="Create new restaurant">Create new restaurant</button>
+        </form>
+        <% end %>
+      </div>
+    </div>
+  </div>
