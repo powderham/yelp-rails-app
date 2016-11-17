@@ -16,7 +16,7 @@
   <!-- <p> Logged in as: <%= current_user.email %></p> -->
   <div class="all_links" >
   <li>
-    <%= link_to('Sign out', destroy_user_session_path, :method => :delete, :id => 'sign_out_link') %>
+    <%= link_to('Sign out', destroy_user_session_path, :id => 'sign_out_link', :method => :delete) %>
   </li>
   <li>
     <%= link_to('Edit registration', edit_user_registration_path) %>

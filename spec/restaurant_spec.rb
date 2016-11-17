@@ -24,11 +24,15 @@ RSpec.feature 'Restaurant' do
   end
 
   scenario 'Only owner can edit restaurant' do
+    sign_up_user_1
+    create_restaurant
     sign_out
     sign_up_user_2
-    find("a[id='Frankie\'s Fast Food Fiasco']").click
+    find("a[id='Frankies Fast Food Fiasco']").click
     find("a[id='edit_restaurant_button']").click
-    expect(page).to have_current_path "/restaurants/1"
+    fill_in "text_area", with: "ABCDE"
+    find("input[name='commit']").click
+    expect(page).to_not have_content "ABCDE"
   end
 end
 

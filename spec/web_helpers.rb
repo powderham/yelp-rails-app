@@ -18,7 +18,7 @@ end
 def create_restaurant
   visit 'yelp/index'
   click_button("Create new restaurant")
-  fill_in "restaurant_name", with: "Frankie's Fast Food Fiasco"
+  fill_in "restaurant_name", with: "Frankies Fast Food Fiasco"
   fill_in "restaurant_description", with: "Bad food, worse service"
   find("input[name='commit']").click
 end

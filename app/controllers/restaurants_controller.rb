@@ -31,19 +31,23 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.update_attributes(restaurant_params) if authenticate_restaurant_owner(@restaurant)  
-    redirect_to restaurant_path
+    if authenticate_restaurant_owner(@restaurant)
+        @restaurant.update_attributes(restaurant_params)
+        redirect_to restaurant_path
+      else
+        redirect_to "/restaurants/#{@restaurant.id}"
+    end
+
   end
 
-  def authenticate_restaurant_owner(restaurant_object)
-    current_user.id == restaurant_object.user_id
-  end
 
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :description)
   end
 
-
+  def authenticate_restaurant_owner(restaurant_object)
+    current_user.id == restaurant_object.user_id
+  end
 
 end
