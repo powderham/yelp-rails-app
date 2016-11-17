@@ -3,10 +3,10 @@
 <ul style="list-style: none;">
 <% @restaurants.each do |res| %>
   <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ><%= res.name %></a><br>
-  <%= res.description %>
-  <%= res.average_rating %></li>
+  <%= res.description %><br>
+  Avg rating: <%= res.average_rating %></li>
   <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
-  <br>
+  <br><br>
 <% end %>
 </ul>
 

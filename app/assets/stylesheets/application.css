@@ -19,8 +19,57 @@
    display: inline;
    margin: 0 0 2em;
  }
+ html {
+   background-color: #ffffe6
+ }
+ * a {
+   text-decoration: none;
+ }
+ a:link, a:visited {
+   color: #009933;
+ }
+ a:hover {
+   color: #000000;
+ }
  .all_links {
    position: absolute;
    right: 40px;
    top: 16px;
  }
+.sign_up_edit, .sign_out_in {
+  padding: 6px;
+  border-radius: 8px;
+  margin: 4px;
+  text-align: center;
+  background-color: #3399ff;
+  letter-spacing: 1px;
+}
+#all_links a:link{
+  color: #ffffff;
+}
+#all_links a:visited {
+  color: #ffffff;
+}
+.sign_up_edit:hover {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: #ff471a;
+}
+.sign_out_in:hover {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: #ff471a;
+}
+.logged_in {
+  font-size: 15px;
+  font-family: arial;
+  color: #000000;
+}
+.restaurant_description_field{
+  resize: none;
+  width: 20%;
+  height: 50px;
+  border-radius: 12px;
+  background-color: #ff471a;
+  color: #ffffff;
+}

@@ -5,34 +5,44 @@
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %></head>
-<body>
-  <% if user_signed_in?  %>
-  <p> Logged in as: <%= current_user.email %></p>
-  <% end %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"> <%= alert %></p>
-<ul>
-  <% if user_signed_in?  %>
-  <!-- <p> Logged in as: <%= current_user.email %></p> -->
-  <div class="all_links" >
-  <li>
-    <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
-  </li>
-  <li>
-    <%= link_to('Edit registration', edit_user_registration_path) %>
-  </li>
-  <% else %>
-  <li>
-    <%= link_to('Sign in', new_user_session_path) %>
-  </li>
-  <li>
-    <%= link_to('Sign up', new_user_registration_path) %>
-  </li>
-  <% end %>
+  <body>
+    <% if user_signed_in?  %>
+    <div class="logged_in">
+    <p> Logged in as: <%= current_user.email %></p>
   </div>
-</ul>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"> <%= alert %></p>
+    <ul>
+      <% if user_signed_in?  %>
+      <!-- <p> Logged in as: <%= current_user.email %></p> -->
+      <div class="all_links" id="all_links" >
+        <div class="sign_out_in" id="sign_out_in" >
+          <li>
+            <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+          </li>
+        </div>
+        <div class="sign_up_edit" id="sign_up_edit" >
+          <li>
+            <%= link_to('Edit registration', edit_user_registration_path) %>
+          </li>
+        </div>
+        <% else %>
+        <div class="sign_out_in" id="sign_out_in" >
+          <li>
+            <%= link_to('Sign in', new_user_session_path) %>
+          </li>
+        </div>
+        <div class="sign_up_edit" id="sign_up_edit" >
+          <li>
+            <%= link_to('Sign up', new_user_registration_path) %>
+          </li>
+        </div>
+        <% end %>
+      </div>
+    </ul>
 
-  <%= yield %>
+    <%= yield %>
 
-</body>
-</html>
+  </body>
+  </html>
