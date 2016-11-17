@@ -20,18 +20,20 @@
 
   <strong>Reviews:</strong>
   <ul>
-    <% @restaurant.reviews.each do |res| %>
+    <% @restaurant.reviews.each do |review| %>
     <li>
       Review:<br>
-      <%= res.comment %><br>
+      <%= review.comment %><br>
       Rating:
-      <%= res.rating %><br><br>
-      <%= res.user_email %><br><br>
+      <%= review.rating %><br><br>
+      <%= review.user_email %><br><br>
+      <!-- <% if review.user_id == current_user.id %>
+        <%= link_to 'delete', restaurant_review_path(@restaurant, review), method: :delete, data: {confirm: 'You sure?'} %>
+      <% end %> -->
     </li>
     <%end%>
   </ul>
 </p>
 
 
-
-<%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>
+  <%= link_to '<button type="submit">Edit</button>'.html_safe, edit_restaurant_path(@restaurant)%>

@@ -1,3 +1,7 @@
+<% if current_user.has_reviewed? @restaurant %>
+  <p>You have already reviewed this restaurant</p>
+<% else %>
+
 <%= form_for [@restaurant, @review] do |f| %>
 <p>
   <%= f.label :rating %><br>
@@ -9,11 +13,9 @@
   <%= f.text_area :comment %><br>
 </p>
 
-
-
-
 <p>
   <%= f.submit 'Leave Review'%><br>
 </p>
 
+<% end %>
 <% end %>

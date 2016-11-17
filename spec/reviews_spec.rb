@@ -17,6 +17,19 @@ RSpec.feature 'Reviews' , :type => :feature do
     expect(page).to have_content "Belongs to john@email.com"
   end
 
+  scenario 'users can delete their own reviews' do
+    sign_up_user_1
+    create_restaurant
+    find("a:contains('Sign out')").click
+    sign_up_user_2
+    find('a[id="review_Frankie\'s Fast Food Fiasco"]').click
+    find("input[id$='review_rating']").set "3"
+    fill_in "review_comment", with: "Anything...:)"
+    click_button "Leave Review"
+    
+
+  end
+
 
 
 end

@@ -13,9 +13,15 @@ class ReviewsController < ApplicationController
       @review = @restaurant.reviews.create(review_params)
       @review.user_id = current_user.id
       @review.save
-      redirect_to '/restaurants'
+      redirect_to @restaurant
     end
   end
+
+    def destroy
+      @restaurant = Restaurant.find(params[:id])
+      @review = @restaurant.reviews.find(params[:id])
+      @review.destroy
+    end
 
 private
 def review_params
