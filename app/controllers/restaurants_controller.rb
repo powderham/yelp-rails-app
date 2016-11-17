@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.new(restaurant_params)
       @restaurant.user_id = current_user.id
       @restaurant.save
-      redirect_to '/restaurants'
+      redirect_to "/restaurants/#{@restaurant.id}"
     end
   end
 
@@ -30,17 +30,20 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-      @restaurant = Restaurant.find(params[:id])
-      if @restaurant.update_attributes(restaurant_params)
-      else
-          render 'edit'
-      end
-      redirect_to restaurant_path
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update_attributes(restaurant_params) if authenticate_restaurant_owner(@restaurant)  
+    redirect_to restaurant_path
+  end
+
+  def authenticate_restaurant_owner(restaurant_object)
+    current_user.id == restaurant_object.user_id
   end
 
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :description)
   end
+
+
 
 end
