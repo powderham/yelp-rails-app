@@ -42,7 +42,7 @@
   margin: 4px;
   text-align: center;
   background-color: #3399ff;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
 }
 #all_links a:link{
   color: #ffffff;
@@ -61,15 +61,19 @@
   background-color: #ff471a;
 }
 .logged_in {
-  font-size: 15px;
+  font-size: 1em;
   font-family: arial;
   color: #000000;
 }
-.restaurant_description_field{
-  resize: none;
+textarea {
+  font-size: 1em;
+  resize: inherit;
   width: 20%;
-  height: 50px;
-  border-radius: 12px;
-  background-color: #ff471a;
-  color: #ffffff;
+  height: 100%;
+  padding: 4px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffccff;
+  color: #0000ff;
+  outline-width: 0;
 }
