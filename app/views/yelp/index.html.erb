@@ -37,25 +37,27 @@
 
 
         <div class="panel-group" id="accordion">
-          <% @restaurants.each do |res| %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse((<%=res.id%>))"><%= res.name %></a>
-              </h4>
-            </div>
-            <div id="collapse(<%=res.id%>)" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ></a>
-                      <br>
-                      <%= res.description %>
-                      <%= res.average_rating %></li>
-                      <% if current_user != nil %>
-                      <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
+          <ul>
 
-                  <% end %>
-            </div>
-            </div>
-          </div>
-          <% end %>
+            <% @restaurants.each do |res| %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=res.id%>"><%= res.name %></a>
+                </h4>
+              </div>
+              <div id="collapse<%=res.id%>" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <li><a href='/restaurants/<%= res.id%>' id="<%= res.name %>" ></a>
+                    <%= res.description %>
+                    <%= res.average_rating %></li>
+                    <% if current_user != nil %>
+                    <%= link_to "Review #{res.name}", new_restaurant_review_path(res), id: "review_#{res.name}" %>
+
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+          </ul>
         </div>

@@ -14,11 +14,11 @@
  *= require_self
  */
 
- /*ul {
+ ul {
    list-style: none;
    display: inline;
    margin: 0 0 2em;
- }*/
+ }
 
  #navbar {
    background-color: #3c767f;
