@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     end
 
     root 'yelp#index'
+    
+    resources :reviews
 
 
   # Example resource route with options:

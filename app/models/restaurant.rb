@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews,  dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   delegate :email, to: :user, prefix: true
 
   def average_rating
@@ -13,5 +13,11 @@ class Restaurant < ActiveRecord::Base
     end
     return "No reviews" if count == 0
     total/count
+  end
+
+  def build_review(attributes = {}, user)
+    review = reviews.build(attributes)
+    review.user = user
+    review
   end
 end
