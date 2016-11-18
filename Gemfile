@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use postgres as the database for Active Record
@@ -17,7 +17,7 @@ gem 'paperclip'
 
 gem 'devise'
 gem 'aws-sdk', '< 2.0'
-
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
