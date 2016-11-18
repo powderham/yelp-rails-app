@@ -14,7 +14,7 @@ RSpec.feature 'Homepage', :type => :feature do
   end
 
   scenario 'contain new restaurant button' do
-    visit 'yelp/index'
+    sign_up_user_1
     find('button[name="new_restaurant"]').click
     expect(page).to have_current_path('/restaurants/new?new_restaurant=Create+new+restaurant')
   end
