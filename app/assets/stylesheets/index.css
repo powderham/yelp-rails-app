@@ -1,6 +1,10 @@
 h1 {
   color: #fff;
-  font-size: 128px;
+  font-size: 9em;
+  font-family: "Trebuchet MS", Helvatica, sans-serif;
+}
+h2 {
+  font-size: 3.5em;
   font-family: "Trebuchet MS", Helvatica, sans-serif;
 }
 
@@ -32,4 +36,20 @@ button:hover {
   background-color:  #ffe200;
   color: #000;
   box-shadow:  #ffe200  0 0px 0px 40px inset;
+}
+
+p {
+  font-size: 16px;
+  color: #fff;
+}
+#sign-in-link {
+  color: #000;
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  background-color:  #ffe200;
+}
+#sign-in-link:hover {
+  color: #fff;
+  text-decoration: none;
 }

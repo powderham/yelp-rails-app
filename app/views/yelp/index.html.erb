@@ -10,8 +10,8 @@
 <div class="row span12">
   <div class="text-center">
           <% if current_user.nil? %>
-          To register a new restaurant:<br>
-          <%= link_to('Sign in', new_user_session_path) %>
+          <p>To register a new restaurant:</p>
+          <%= link_to('Sign in', new_user_session_path, :id => 'sign-in-link') %>
           <% else %>
 
           <form class="button span4 offset4" action="/restaurants/new" method="get">
@@ -24,12 +24,12 @@
   </section>
 
 <section>
-
       <div class="container">
-      <div class="row-fluid">
-        <div class="span12">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
         <h2>Restaurants</h2>
-
+        </div>
+        </div>
         <div class="panel-group" id="accordion">
           <ul>
 
@@ -60,7 +60,7 @@
               <% end %>
           </ul>
         </div>
-        </div>
-        </div>
+
+
       </div>
     </section>
