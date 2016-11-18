@@ -46,7 +46,6 @@
  }
  * a {
    text-decoration: none;
-   color: ;
  }
  a:link, a:visited {
    color: #009933;
@@ -71,4 +70,8 @@ textarea {
   background-color: #ffccff;
   color: #0000ff;
   outline-width: 0;
+}
+
+.row{
+  height: 100%;
 }
