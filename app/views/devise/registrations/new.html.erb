@@ -1,3 +1,5 @@
+<section class="parallax">
+  <div class="sign-in-container text-center">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -22,8 +24,29 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <br><%= f.submit "Sign up", :id => 'sign-in-link' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</section>
+<style >
+h2 {
+  color: white
+}
+.sign-in-container {
+  padding-top: 60px;
+}
+
+#shared-links {
+  color: white;
+  text-decoration: none
+}
+#shared-links:hover {
+  color: black;
+  text-decoration: none
+}
+
+
+</style>
