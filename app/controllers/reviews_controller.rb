@@ -6,33 +6,29 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
     if current_user.nil?
       redirect_to '/yelp/index'
+    elsif condition
+
     else
-      @restaurant = Restaurant.find(params[:restaurant_id])
-      @review = @restaurant.build_review review_params, current_user
-      if @review.save
-        redirect_to @restaurant
-      else
-        if @review.errors[:user]
-          redirect_to @restaurant, alert: 'You have already reviewed this restaurant'
-        else
-          render :new
-        end
-      end
+      @restaurant = Restaurant.find(params[:restaurant_id ])
+      @review = @restaurant.reviews.create(review_params)
+      @review.user_id = current_user.id
+      @review.save
+      redirect_to @restaurant
     end
   end
 
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    flash[:succes] = "Review deleted"
-    redirect_to restaurants_path
-  end
+    def destroy
+      @restaurant = Restaurant.find(params[:id])
+      @review = @restaurant.reviews.find(params[:id])
+      @review.destroy
+    end
 
-  private
-  def review_params
-    params.require(:review).permit(:comment, :rating)
-  end
+private
+def review_params
+  params.require(:review).permit(:comment, :rating)
+end
 
 end
