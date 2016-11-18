@@ -13,6 +13,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %></head>
   <body>
+    <div class="parallax">
     <nav class="navbar navbar-inverse" id="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -36,8 +37,10 @@
         </ul>
       </div>
     </nav>
+
     <!-- <p class="notice"><%=notice%></p>
     <p class="alert"><%=alert%></p> -->
     <%= yield %>
+  </div>
   </body>
   </html>
